@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { api } from "~/trpc/react";
 import Link from "next/link";
+import StatsPanel from "~/components/StatsPanel";
 
 const categories = ["all", "vegetable", "fruit", "root"];
 
@@ -134,33 +135,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Stats Section - Professional */}
+      {/* Stats Section - replaced with interactive component */}
       <div className="relative px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-2xl bg-gradient-to-r from-slate-700 via-slate-800 to-slate-700 p-6 md:p-8 text-white shadow-lg relative overflow-hidden border border-slate-600/30">
-            {/* Decorative pattern lines */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            
-            <div className="grid md:grid-cols-4 gap-4 md:gap-6 relative z-10">
-              <div className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-black text-emerald-300">4</div>
-                <p className="text-xs font-semibold text-slate-300 mt-2 uppercase tracking-wide">Categories</p>
-              </div>
-              <div className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-black text-emerald-300">0</div>
-                <p className="text-xs font-semibold text-slate-300 mt-2 uppercase tracking-wide">Active Listings</p>
-              </div>
-              <div className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-black text-emerald-300">100%</div>
-                <p className="text-xs font-semibold text-slate-300 mt-2 uppercase tracking-wide">Transparency</p>
-              </div>
-              <div className="text-center md:text-left">
-                <div className="text-3xl md:text-4xl font-black text-emerald-300">⚡</div>
-                <p className="text-xs font-semibold text-slate-300 mt-2 uppercase tracking-wide">Live Updates</p>
-              </div>
-            </div>
-          </div>
+          <StatsPanel />
         </div>
       </div>
 
