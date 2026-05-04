@@ -135,7 +135,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Stats Section - replaced with interactive component */}
+      {/* Stats Section - Professional */}
       <div className="relative px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         <div className="mx-auto max-w-7xl">
           <StatsPanel />
