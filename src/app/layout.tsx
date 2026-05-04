@@ -1,5 +1,6 @@
 import "~/styles/globals.css";
 
+import { Suspense } from "react";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 
@@ -25,7 +26,9 @@ export default function RootLayout({
       <body>
         <TRPCReactProvider>
           {/* --- NAVBAR START --- */}
-          <Navbar />
+          <Suspense fallback={null}>
+            <Navbar />
+          </Suspense>
           {/* --- NAVBAR END --- */}
 
           <main>{children}</main>

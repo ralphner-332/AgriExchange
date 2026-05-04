@@ -30,7 +30,10 @@ export async function POST(req: Request) {
           resource_type: "image",
         },
         (error, result) => {
-          if (error) return reject(error);
+          if (error) {
+            const message = error instanceof Error ? error.message : "Cloudinary upload failed";
+            return reject(new Error(message));
+          }
           resolve(result);
         }
       );

@@ -117,14 +117,15 @@ export default function Home() {
                   { bg: "bg-gradient-to-br from-emerald-100 to-emerald-200", text: "text-emerald-900", icon: "text-emerald-700" },
                   { bg: "bg-gradient-to-br from-cyan-100 to-blue-100", text: "text-blue-900", icon: "text-blue-700" }
                 ];
+                const color = colors[idx] ?? colors[0]!;
                 return (
                   <div
                     key={idx}
-                    className={`group rounded-lg ${colors[idx].bg} p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition transform border border-slate-200/50`}
+                    className={`group rounded-lg ${color.bg} p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition transform border border-slate-200/50`}
                   >
-                    <div className={`text-3xl mb-2 group-hover:scale-110 transition ${colors[idx].icon}`}>{feature.icon}</div>
-                    <h3 className={`text-base font-bold ${colors[idx].text} mb-1`}>{feature.title}</h3>
-                    <p className={`text-xs ${colors[idx].text} opacity-75 leading-snug`}>{feature.description}</p>
+                    <div className={`text-3xl mb-2 group-hover:scale-110 transition ${color.icon}`}>{feature.icon}</div>
+                    <h3 className={`text-base font-bold ${color.text} mb-1`}>{feature.title}</h3>
+                    <p className={`text-xs ${color.text} opacity-75 leading-snug`}>{feature.description}</p>
                   </div>
                 );
               })}

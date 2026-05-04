@@ -5,28 +5,32 @@ import { useState } from "react";
 import { api } from "~/trpc/react";
 
 export function LatestPost() {
-  const [latestPost] = api.post.getLatest.useSuspenseQuery();
+  const [listings] = api.listing.getAll.useSuspenseQuery();
 
   const utils = api.useUtils();
   const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState("1");
   const createPost = api.post.create.useMutation({
     onSuccess: async () => {
-      await utils.post.invalidate();
+      await utils.listing.invalidate();
       setName("");
+      setQuantity("1");
     },
   });
 
+  const latestListing = listings.at(0);
+
   return (
     <div className="w-full max-w-xs">
-      {latestPost ? (
-        <p className="truncate">Your most recent post: {latestPost.name}</p>
+      {latestListing ? (
+        <p className="truncate">Your most recent listing: {latestListing.name}</p>
       ) : (
-        <p>You have no posts yet.</p>
+        <p>You have no listings yet.</p>
       )}
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createPost.mutate({ name });
+          createPost.mutate({ name, quantity: Number(quantity) });
         }}
         className="flex flex-col gap-2"
       >
@@ -35,6 +39,14 @@ export function LatestPost() {
           placeholder="Title"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="w-full rounded-full bg-white/10 px-4 py-2 text-white"
+        />
+        <input
+          type="number"
+          min="1"
+          placeholder="Quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
           className="w-full rounded-full bg-white/10 px-4 py-2 text-white"
         />
         <button

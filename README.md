@@ -7,9 +7,12 @@ In response to the 2026 food inflation and the city's "Gulay sa Panimalay" initi
 ## The "Speed-Build" Stack
 Built with the 2026 developer "Gold Standard" for type-safety and performance:
 * **Framework:** [T3 Stack](https://create.t3.gg/) (Next.js, TypeScript, tRPC, Tailwind CSS)
-* **Database:** Prisma (with PostgreSQL)
+* **Database:** Prisma with PostgreSQL
 * **Image Intelligence:** Cloudinary for AI auto-tagging and image optimization.
 * **Deployment:** Vercel (CI/CD optimized).
+
+## Vercel Deployment
+Use a hosted PostgreSQL database before deploying. Set `DATABASE_URL` in Vercel, along with the Cloudinary variables used by the upload route: `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET`.
 
 ## Project Structure
 * `src/app`: Next.js App Router for high-performance routing.
