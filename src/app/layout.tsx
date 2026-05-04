@@ -23,7 +23,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body>
+      <body className="bg-[url('/abstract-blur-park-with-green-field.jpg')] bg-cover bg-fixed bg-center">
         <TRPCReactProvider>
           {/* --- NAVBAR START --- */}
           <Suspense fallback={null}>
